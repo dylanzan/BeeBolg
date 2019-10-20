@@ -1,0 +1,62 @@
+{{template "header"}}
+<title>LoginPage</title>
+<script type="text/javascript">
+    window.onload = function () {
+        //判断登录框中的账号密码是否为空
+        document.getElementById("login").onclick = function () {
+            var uname = document.getElementById("uname").value;
+            if (uname.length == 0) {
+                alert("请输入账号！");
+                return false; //如果为空，便返回false，return 退出，便不向login post
+            }
+            var pwd = document.getElementById("pwd").value;
+            //alert(pwd.length);
+            if (pwd.length == 0) {
+                alert("请输入密码！");
+                return false;
+            }
+            return true
+        }
+        
+        //返回首页
+        document.getElementById("buck").onclick=function () {
+            window.location.href="/";
+            return false;
+        }
+
+    }
+</script>
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        {{template "navbar" .}}
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="container" style="width: 500px">
+    <form method="POST" action="/login">
+        <div class="form-group">
+            <label>Account</label>
+            <input id="uname" class="form-control" name="uname" placeholder="Enter account">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input id="pwd" type="password" class="form-control" placeholder="Password" name="pwd">
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="autoLogin">自动登录
+            </label>
+        </div>
+        <button id="login" type="submit" class="btn btn-default">登录</button>
+        <button id="back" class="btn btn-default">返回首页</button>
+    </form>
+</div>
+
+</body>
+
+</html>

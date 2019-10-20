@@ -1,0 +1,44 @@
+{{template "header"}}
+<title>{{.Topic.Title}}</title>
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        {{template "navbar" .}}
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <h1>{{.Topic.Title}} &emsp;&emsp;<a href="/topic/modify?tid={{.Topic.Id}}" class="btn btn-default">修改文章</a></h1>
+    {{.Topic.Content}}
+</div>
+
+<div class="container">
+    {{$tid:=.Topic.Id}}
+    {{$isLogin:=.IsLogin}}
+    {{range .Replies}}
+        {{with .}}
+            <h3>{{.Name}} <small>{{.Created}}</small>{{if $isLogin}}<a href="/reply/delete?tid={{.Id}}&rid={{.Id}}">删除</a>{{end}}</h3><br>
+            {{.Content}}
+        {{end}}
+    {{end}}
+
+    <h3>本文回复</h3>
+    <form method="POST" action="/reply/add">
+        <input type="hidden" name="tid" value="{{.Topic.Id}}">
+        <div class="form-group">
+            <label>显示昵称</label>
+            <input type="text" class="form-control" name="nickname">
+        </div>
+
+        <div class="form-group">
+            <label>内容：</label>
+            <textarea name="content" id="" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+        <button class="btn btn-default">提交回复</button>
+    </form>
+</div>
+
+</body>
+</html>
