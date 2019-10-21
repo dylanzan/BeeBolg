@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="186cb7f7-7a5e-4054-910b-733ac0cb5523" name="Default Changelist" comment="" />
+    <list default="true" id="186cb7f7-7a5e-4054-910b-733ac0cb5523" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/Attach.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/go_build_main_go.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/go_build_main_go.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/topic.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/topic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/beego.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/beego.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/models.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/topic_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/topic_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/topic_modify.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/topic_modify.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/topic_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/topic_view.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,13 +29,18 @@
     </option>
   </component>
   <component name="GOROOT" path="D:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1S60FyY3BPO25q9UNrbmdQTy9qG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
@@ -106,6 +123,17 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.tpl" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

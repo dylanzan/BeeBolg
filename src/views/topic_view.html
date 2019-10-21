@@ -12,6 +12,7 @@
 <div class="container">
     <h1>{{.Topic.Title}} &emsp;&emsp;<a href="/topic/modify?tid={{.Topic.Id}}" class="btn btn-default">修改文章</a></h1>
     {{.Topic.Content}}
+    <h5>文章附件:<a href="/attachment/{{.Topic.Attaciment}}">{{.Topic.Attaciment}}</a></h5>
 </div>
 
 <div class="container">

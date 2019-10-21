@@ -4,6 +4,7 @@ import (
 	"BeeBlog/src/models"
 	"github.com/astaxie/beego"
 	"log"
+	"path"
 )
 
 type TopicController struct {
@@ -33,18 +34,43 @@ func (this *TopicController)Post(){
 		this.Redirect("/login",302)
 		return
 	}
+
+	//解析表单
 	title:=this.Input().Get("title")
 	content:=this.Input().Get("content")
 	tid:=this.Input().Get("tid")
 	category:=this.Input().Get("category")
 	label:=this.Input().Get("label")
 
-	var err error
+
+	//判断用户是否上传附件
+ 	_,fh,err:=this.GetFile("attachment")
+
+ 	if err!=nil{
+ 		beego.Error(err)
+	}
+
+ 	var attachment string
+
+ 	if fh!=nil{
+ 		attachment=fh.Filename
+ 		beego.Info(attachment)
+ 		err=this.SaveToFile("attachment",path.Join("attachment",attachment))
+ 		//filename:tmp.go
+ 		//attachment/tmp.go
+
+ 		if err!=nil{
+ 			beego.Error(err)
+		}
+	}
+
+
+	//var err error
 
 	if len(tid)==0{
-		err=models.AddTopic(title,content,label,category)
+		err=models.AddTopic(title,content,label,category,attachment)
 	}else {
-		err = models.ModifyTopic(tid,title,label,content,category)
+		err = models.ModifyTopic(tid,title,label,content,category,attachment)
 	}
 
 	if err!=nil{

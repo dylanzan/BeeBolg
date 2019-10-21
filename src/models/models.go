@@ -127,7 +127,7 @@ func GetAllCategorys() ([]*Category, error) {
 	return cates, err
 }
 
-func AddTopic(tile, content, label, category string) error {
+func AddTopic(tile, content, label, category ,attachment string) error {
 
 	//处理标签
 	//空格作为多个标签和分隔符
@@ -144,7 +144,7 @@ func AddTopic(tile, content, label, category string) error {
 		Uid:              0,
 		Title:            tile,
 		Content:          content,
-		Attaciment:       "",
+		Attaciment:       attachment,
 		Labels:           label,
 		Created:          time.Now(),
 		Updated:          time.Now(),
@@ -235,7 +235,7 @@ func GetTopicById(id string) (*Topic, error) { //id string :url,form表单中大
 	return topic, err
 }
 
-func ModifyTopic(tid, titile, label,content, category string) error {
+func ModifyTopic(tid, titile, label,content, category,attachment string) error {
 
 	label = "$" + strings.Join(strings.Split(label, " "), "#$") + "#"
 
@@ -249,20 +249,29 @@ func ModifyTopic(tid, titile, label,content, category string) error {
 	o := orm.NewOrm()
 	topic := &Topic{Id: tidNum}
 
-	var oldCate string
+	var oldCate,oldAttach string
 	if o.Read(topic) == nil {
 		oldCate = topic.Category
+		oldAttach=topic.Attaciment
 		topic.Title = titile
 		topic.Content = content
 		topic.Updated = time.Now()
 		topic.Category = category
 		topic.Labels=label
+		topic.Attaciment=attachment
+
 		_, err := o.Update(topic)
 
 		if err != nil {
 			beego.Error(err)
 			return err
 		}
+
+		//删除附旧件
+		if len(oldAttach)>0{
+			os.Remove(path.Join("attachment",oldAttach))
+		}
+
 
 		cate := new(Category)
 		qs := o.QueryTable("category")
